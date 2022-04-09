@@ -20,7 +20,11 @@ const screenshot = async (
     executablePath: await chrome.executablePath,
     args: chrome.args,
     headless: true,
-    defaultViewport: { deviceScaleFactor: 2, width: 568, height: 164 },
+    defaultViewport: {
+      ...chrome.defaultViewport,
+      width: 568,
+      height: 164,
+    },
   });
 
   try {
@@ -63,7 +67,6 @@ const api = async (req: VercelRequest, res: VercelResponse) => {
     res.setHeader("Link", `<${embedURL}>; rel="canonical"`);
     res.setHeader("Content-Type", "image/png");
     res.setHeader("Cache-Control", "max-age=86400, public, stale-while-revalidate");
-    res.setHeader("Content-DPR", "2.0");
     res.send(image);
   } catch {
     return res.status(500);
