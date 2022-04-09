@@ -6,6 +6,16 @@ const screenshot = async (
   embedUrl: string,
   type: "png" | "jpeg" | "webp" = "png",
 ) => {
+  // Font settings ref: https://github.com/ci7lus/tweet2image/blob/d87ff5e0233bd139ca96e1c507ef62916bbdc449/app/routes/%24path.tsx#L78-L92
+  await chrome.font(
+    "https://cdn.jsdelivr.net/gh/googlefonts/noto-cjk@165c01b46ea533872e002e0785ff17e44f6d97d8/Sans/OTF/Japanese/NotoSansCJKjp-Regular.otf",
+  );
+  await chrome.font(
+    "https://cdn.jsdelivr.net/gh/googlefonts/noto-fonts@736e6b8f886cae4664e78edb0880fbb5af7d50b7/hinted/ttf/NotoSansMath/NotoSansMath-Regular.ttf",
+  );
+  await chrome.font(
+    "https://cdn.jsdelivr.net/gh/googlefonts/noto-fonts@7697007fcb3563290d73f41f56a70d5d559d828c/hinted/ttf/NotoSans/NotoSans-Regular.ttf",
+  );
   const browser = await chrome.puppeteer.launch({
     executablePath: await chrome.executablePath,
     args: chrome.args,
