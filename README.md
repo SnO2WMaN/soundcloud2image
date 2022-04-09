@@ -39,3 +39,7 @@ References: https://scrapbox.io/sno2wman/2img
 - https://github.com/nwtgck/gh-card
 - https://github.com/rinsuki/nicothumb2img
 - https://github.com/SnO2WMaN/spotify2image
+
+## License
+
+[MIT License](https://github.com/SnO2WMaN/soundcloud2image/blob/main/LICENSE)
